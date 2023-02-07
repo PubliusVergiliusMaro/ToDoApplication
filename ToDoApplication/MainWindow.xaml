@@ -1,0 +1,29 @@
+﻿<Window x:Class="ToDoApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoApplication"
+        mc:Ignorable="d"
+        Title="To Do App" Height="450" Width="449" Closed="Window_Closed" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="63.006"/>
+            <RowDefinition/>
+            <RowDefinition Height="64.006"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="ToDoListBox" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="8,10,8,10" MouseDoubleClick="ToDoListBox_MouseDoubleClick" />
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="AddBtn" Content="Додати" Margin="12,0,8,12" Padding="8,0,8,0" Height="32" Width="81" Click="AddButton_Click"/>
+            <Button x:Name="CompleteBtn" Content="Завершити" Margin="12,0,8,12" Padding="8,0,8,0" Height="32" Width="81" Click="CompleteButton_Click_2"/>
+            <Button  x:Name="DeleteBtn" Content="Видалити" Margin="12,0,8,12" Padding="8,0,8,0" Height="32" Width="81" Click="DeleteButton_Click_1"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" >
+            <RadioButton x:Name="AllRadioBtn" Content="Усі" Height="22" Width="45" Margin="10,0,5,0" Checked="AllRadioBtn_Checked" />
+            <RadioButton x:Name="CompleteRadioBtn" Content="Виконані" Height="22" Width="81" Margin="5,0,5,0" Checked="CompleteRadioBtn_Checked"/>
+            <RadioButton x:Name="NotCompleteRadioBtn" Content="Не виконані" Height="22" Width="92" Checked="NotCompleteRadioBtn_Checked"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

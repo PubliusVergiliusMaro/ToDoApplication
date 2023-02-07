@@ -1,0 +1,27 @@
+﻿<Window x:Class="ToDoApplication.NewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoApplication"
+        mc:Ignorable="d"
+        Title="Вікно додавання нового завдання" Height="340" Width="308">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="74.04"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10,0,10,0">
+            <Button x:Name="CnslBtn" Content="Відмінити" Margin="10,10,10,10" FontFamily="Calibri" FontSize="16" Height="35" Width="80" Click="CnslBtn_Click" />
+            <Button x:Name="AddBtn" Content="Додати" Margin="90,10,10,10" FontFamily="Calibri" FontSize="16" Height="35" Width="79" Click="AddBtn_Click"/>
+        </StackPanel>
+        <StackPanel>
+            <Label Content="Назва" Width="43" Foreground="#FF8F8585" FontFamily="Berlin Sans FB" Margin="0,0,0,-3" />
+            <TextBox x:Name="NameTxtBox" TextWrapping="Wrap" Width="121" Height="37" TextChanged="NameTxtBox_TextChanged"/>
+            <Label  Content="Опис" Width="43" Foreground="#FF8F8585" FontFamily="Berlin Sans FB" Margin="0,10,0,-3"/>
+            <TextBox x:Name="DescriprionTxtBox" TextWrapping="Wrap"  Width="120" Height="94" TextChanged="DescriprionTxtBox_TextChanged"/>
+            <CheckBox x:Name="CompleteCheckBx" Content="Додати до списку виконаних завдань." Width="231" Margin="0,15,0,0"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

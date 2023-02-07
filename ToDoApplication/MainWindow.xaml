@@ -7,22 +7,41 @@
         mc:Ignorable="d"
         Title="To Do App" Height="450" Width="449" Closed="Window_Closed" Loaded="Window_Loaded">
     <Grid>
+        <Grid.Background>
+            <ImageBrush TileMode="Tile" Stretch="Fill" ImageSource="/3263236.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="63.006"/>
+            <RowDefinition Height="45"/>
             <RowDefinition/>
             <RowDefinition Height="64.006"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="ToDoListBox" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="8,10,8,10" MouseDoubleClick="ToDoListBox_MouseDoubleClick" />
+        <ListBox x:Name="ToDoListBox" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="8,10,8,10" MouseDoubleClick="ToDoListBox_MouseDoubleClick" >
+            <ListBox.Effect>
+                <DropShadowEffect/>
+            </ListBox.Effect>
+        </ListBox>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button x:Name="AddBtn" Content="Додати" Margin="12,0,8,12" Padding="8,0,8,0" Height="32" Width="81" Click="AddButton_Click"/>
-            <Button x:Name="CompleteBtn" Content="Завершити" Margin="12,0,8,12" Padding="8,0,8,0" Height="32" Width="81" Click="CompleteButton_Click_2"/>
-            <Button  x:Name="DeleteBtn" Content="Видалити" Margin="12,0,8,12" Padding="8,0,8,0" Height="32" Width="81" Click="DeleteButton_Click_1"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,3,0,0" Grid.RowSpan="2">
+            <Button x:Name="AddBtn" Content="Додати" Margin="12,0,8,12" Padding="8,0,8,0" Height="32" Width="81" Click="AddButton_Click" Background="#FFF8EC2A" BorderBrush="#FF040303" FontSize="14" FontFamily="Elephant">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="CompleteBtn" Content="Завершити" Margin="12,0,8,12" Padding="8,0,8,0" Height="32" Width="85" Click="CompleteButton_Click_2"  Background="#FFF8EC2A" BorderBrush="#FF040303" FontSize="13" FontFamily="Elephant">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button  x:Name="DeleteBtn" Content="Видалити" Margin="12,0,8,12" Padding="8,0,8,0" Height="32" Width="81" Click="DeleteButton_Click_1"  Background="#FFF57F7F" BorderBrush="#FF040303" FontSize="14" FontFamily="Elephant">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
         </StackPanel>
         <StackPanel Grid.Row="0" Orientation="Horizontal" >
-            <RadioButton x:Name="AllRadioBtn" Content="Усі" Height="22" Width="45" Margin="10,0,5,0" Checked="AllRadioBtn_Checked" />
-            <RadioButton x:Name="CompleteRadioBtn" Content="Виконані" Height="22" Width="81" Margin="5,0,5,0" Checked="CompleteRadioBtn_Checked"/>
-            <RadioButton x:Name="NotCompleteRadioBtn" Content="Не виконані" Height="22" Width="92" Checked="NotCompleteRadioBtn_Checked"/>
+            <RadioButton x:Name="AllRadioBtn" Content="Усі" Height="22" Width="45" Margin="10,0,5,0" Checked="AllRadioBtn_Checked" FontFamily="Elephant" FontSize="18" IsChecked="False" FontWeight="Bold" ClipToBounds="True" RenderTransformOrigin="0.5,0.5"  />
+            <RadioButton x:Name="CompleteRadioBtn" Content="Виконані" Height="22" Width="104" Margin="5,0,5,0" Checked="CompleteRadioBtn_Checked" FontSize="18" FontWeight="Bold" FontFamily="Elephant"/>
+            <RadioButton x:Name="NotCompleteRadioBtn" Content="Не виконані" Height="22" Width="136" Checked="NotCompleteRadioBtn_Checked" FontSize="18" FontWeight="Bold" FontFamily="Elephant"/>
         </StackPanel>
 
     </Grid>

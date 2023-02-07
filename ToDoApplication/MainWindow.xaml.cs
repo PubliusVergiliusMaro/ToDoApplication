@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,9 +27,7 @@ namespace ToDoApplication
     {
         ObservableCollection<Tasks> tasks = new ObservableCollection<Tasks>();
 
-       // ObservableCollection<Tasks> complTasks = new ObservableCollection<Tasks>();
-       // ObservableCollection<Tasks> notComplTasks = new ObservableCollection<Tasks>();
-
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -98,9 +97,17 @@ namespace ToDoApplication
         private void CompleteButton_Click_2(object sender, RoutedEventArgs e)
         {
             int index = ToDoListBox.SelectedIndex;
+            Tasks selected = ToDoListBox.SelectedItem as Tasks;
+
             if (index != -1)
             {
-                tasks[index].isCompleted = true;
+                for (int i = 0; i < tasks.Count; i++)
+
+                    if (tasks[i].Id == selected.Id)
+                    {
+                        tasks[i].isCompleted = true;
+                    }
+              //  tasks[index].isCompleted = true;
             }
             else
             {
@@ -149,6 +156,7 @@ namespace ToDoApplication
             ToDoListBox.ItemsSource = notComplTasks;
             CompleteBtn.IsEnabled = true;
         }
+
         public void SerializeJson(string fileName)
         {
             string json = JsonConvert.SerializeObject(tasks);
@@ -159,15 +167,33 @@ namespace ToDoApplication
             string json = File.ReadAllText(fileName);
             tasks = JsonConvert.DeserializeObject<ObservableCollection<Tasks>>(json);
         }
+
         private void Window_Closed(object sender, EventArgs e)
         {
+            //Виконав за допомогою JSON
             SerializeJson("Data.json");
-          //  DeserializeJson("Data.json");
+
+            //BinaryFormatter formatter = new BinaryFormatter();
+            //using(Stream stream = File.OpenWrite("Data.json"))
+            //{
+            //    formatter.Serialize(stream, tasks);
+            //}
+           
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
             DeserializeJson("Data.json");
+
+            //if (File.Exists("Data.json"))
+            //{
+            //    BinaryFormatter formatter = new BinaryFormatter();
+            //    using (Stream stream = File.OpenRead("Data.json"))
+            //    {
+            //        tasks = formatter.Deserialize(stream) as ObservableCollection<Tasks >;
+            //    }
+            //}
         }
     }
 }

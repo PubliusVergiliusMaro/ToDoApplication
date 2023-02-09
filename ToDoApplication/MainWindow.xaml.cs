@@ -80,17 +80,7 @@ namespace ToDoApplication
                     {
                         tasks.RemoveAt(i);
                     }
-                //for (int i = 0; i < notComplTasks.Count; i++)
-                //    if (notComplTasks[i].Id == deleted.Id)
-                //    {
-                //        notComplTasks.RemoveAt(i);
-                //    }
-                //for (int i = 0; i < complTasks.Count; i++)
-
-                //    if (complTasks[i].Id == deleted.Id)
-                //    {
-                //        complTasks.RemoveAt(i);
-                //    }
+                
             }
         }
 
